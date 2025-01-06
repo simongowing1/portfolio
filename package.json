@@ -2,7 +2,8 @@
   "name": "portfolio",
   "description": "Next.js + Sanity: A Powerful Website Starter with Real-time Visual Editing",
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace=nextjs-app\" \"npm run dev --workspace=studio\""
+    "dev": "concurrently \"npm run dev --workspace=nextjs-app\" \"npm run dev --workspace=studio\"",
+    "build": "npm run build --workspace=nextjs-app && npm run build --workspace=studio"
   },
   "keywords": [
     "Sanity",
