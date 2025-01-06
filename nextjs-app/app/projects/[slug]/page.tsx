@@ -60,7 +60,7 @@ export async function generateMetadata(
   } satisfies Metadata;
 }
 
-export default async function PostPage(props: Props) {
+export default async function ProjectPage(props: Props) {
   const params = await props.params;
   const [{ data: project }] = await Promise.all([
     sanityFetch({ query: projectQuery, params }),

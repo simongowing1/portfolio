@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { sanityFetch } from "@/sanity/lib/live";
-import { morePostsQuery as moreProjectsQuery, allProjectsQuery } from "@/sanity/lib/queries";
-import { Post as ProjectType } from "@/sanity.types";
+import { moreProjectsQuery, allProjectsQuery } from "@/sanity/lib/queries";
+import { Project as ProjectType } from "@/sanity.types";
 import DateComponent from "@/app/components/global/Date";
 import OnBoarding from "@/app/components/global/Onboarding";
 
@@ -21,7 +21,7 @@ const Project = ({ project }: { project: ProjectType }) => {
       <h3 className="mt-3 text-2xl font-semibold">
         <Link
           className="hover:text-red-500 underline transition-colors"
-          href={`/posts/${slug}`}
+          href={`/projects/${slug}`}
         >
           {title}
         </Link>

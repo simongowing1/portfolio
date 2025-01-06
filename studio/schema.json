@@ -398,7 +398,7 @@
               },
               {
                 "type": "string",
-                "value": "post"
+                "value": "project"
               }
             ]
           },
@@ -441,7 +441,7 @@
           },
           "optional": true
         },
-        "post": {
+        "project": {
           "type": "objectAttribute",
           "value": {
             "type": "object",
@@ -467,7 +467,7 @@
                 "optional": true
               }
             },
-            "dereferencesTo": "post"
+            "dereferencesTo": "project"
           },
           "optional": true
         },
@@ -642,7 +642,7 @@
                               },
                               {
                                 "type": "string",
-                                "value": "post"
+                                "value": "project"
                               }
                             ]
                           },
@@ -685,7 +685,7 @@
                           },
                           "optional": true
                         },
-                        "post": {
+                        "project": {
                           "type": "objectAttribute",
                           "value": {
                             "type": "object",
@@ -711,7 +711,7 @@
                                 "optional": true
                               }
                             },
-                            "dereferencesTo": "post"
+                            "dereferencesTo": "project"
                           },
                           "optional": true
                         },
@@ -913,7 +913,7 @@
                         },
                         {
                           "type": "string",
-                          "value": "post"
+                          "value": "project"
                         }
                       ]
                     },
@@ -956,7 +956,7 @@
                     },
                     "optional": true
                   },
-                  "post": {
+                  "project": {
                     "type": "objectAttribute",
                     "value": {
                       "type": "object",
@@ -982,7 +982,7 @@
                           "optional": true
                         }
                       },
-                      "dereferencesTo": "post"
+                      "dereferencesTo": "project"
                     },
                     "optional": true
                   },
@@ -1154,7 +1154,7 @@
     }
   },
   {
-    "name": "post",
+    "name": "project",
     "type": "document",
     "attributes": {
       "_id": {
@@ -1167,7 +1167,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "post"
+          "value": "project"
         }
       },
       "_createdAt": {

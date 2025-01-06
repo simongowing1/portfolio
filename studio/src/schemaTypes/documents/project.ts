@@ -23,7 +23,7 @@ export const project = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'A slug is required for the post to show up in the preview',
+      description: 'A slug is required for the project to show up in the preview',
       options: {
         source: 'title',
         maxLength: 96,

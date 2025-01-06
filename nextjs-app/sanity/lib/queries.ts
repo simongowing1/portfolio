@@ -18,7 +18,7 @@ const linkFields = /* groq */ `
       ...,
       _type == "link" => {
         "page": page->slug.current,
-        "post": post->slug.current
+        "project": project->slug.current
         }
       }
 `;
@@ -47,7 +47,7 @@ export const allProjectsQuery = defineQuery(`
   }
 `);
 
-export const morePostsQuery = defineQuery(`
+export const moreProjectsQuery = defineQuery(`
   *[_type == "project" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
     ${projectFields}
   }
