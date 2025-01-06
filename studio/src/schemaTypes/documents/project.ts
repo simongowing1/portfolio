@@ -3,13 +3,13 @@ import {format, parseISO} from 'date-fns'
 import {defineField, defineType} from 'sanity'
 
 /**
- * Post schema.  Define and edit the fields for the 'post' content type.
+ * Project schema.  Define and edit the fields for the 'project' content type.
  * Learn more: https://www.sanity.io/docs/schema-types
  */
 
-export const post = defineType({
-  name: 'post',
-  title: 'Post',
+export const project = defineType({
+  name: 'project',
+  title: 'Project',
   icon: DocumentTextIcon,
   type: 'document',
   fields: [

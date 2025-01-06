@@ -1,7 +1,7 @@
 import React from "react";
 
-import Cta from "@/app/components/Cta";
-import Info from "@/app/components/InfoSection";
+import Cta from "@/app/components/sections/Cta";
+import Info from "@/app/components/sections/InfoSection";
 import { dataAttr } from "@/sanity/lib/utils";
 
 type BlocksType = {
