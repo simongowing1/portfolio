@@ -38,22 +38,22 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const params = await props.params;
-  const { data: post } = await sanityFetch({
+  const { data: project } = await sanityFetch({
     query: projectQuery,
     params,
     // Metadata should never contain stega
     stega: false,
   });
   const previousImages = (await parent).openGraph?.images || [];
-  const ogImage = resolveOpenGraphImage(post?.coverImage);
+  const ogImage = resolveOpenGraphImage(project?.coverImage);
 
   return {
     authors:
-      post?.author?.firstName && post?.author?.lastName
-        ? [{ name: `${post.author.firstName} ${post.author.lastName}` }]
+      project?.author?.firstName && project?.author?.lastName
+        ? [{ name: `${project.author.firstName} ${project.author.lastName}` }]
         : [],
-    title: post?.title,
-    description: post?.excerpt,
+    title: project?.title,
+    description: project?.excerpt,
     openGraph: {
       images: ogImage ? [ogImage, ...previousImages] : previousImages,
     },
@@ -62,11 +62,11 @@ export async function generateMetadata(
 
 export default async function PostPage(props: Props) {
   const params = await props.params;
-  const [{ data: post }] = await Promise.all([
+  const [{ data: project }] = await Promise.all([
     sanityFetch({ query: projectQuery, params }),
   ]);
 
-  if (!post?._id) {
+  if (!project?._id) {
     return notFound();
   }
 
@@ -78,25 +78,25 @@ export default async function PostPage(props: Props) {
             <div className="pb-6 grid gap-6 mb-6 border-b border-gray-100">
               <div className="max-w-3xl flex flex-col gap-6">
                 <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-                  {post.title}
+                  {project.title}
                 </h2>
               </div>
               <div className="max-w-3xl flex gap-4 items-center">
-                {post.author &&
-                  post.author.firstName &&
-                  post.author.lastName && (
-                    <Avatar person={post.author} date={post.date} />
+                {project.author &&
+                  project.author.firstName &&
+                  project.author.lastName && (
+                    <Avatar person={project.author} date={project.date} />
                   )}
               </div>
             </div>
             <article className="gap-6 grid max-w-4xl">
               <div className="">
-                <CoverImage image={post.coverImage} priority />
+                <CoverImage image={project.coverImage} priority />
               </div>
-              {post.content?.length && (
+              {project.content?.length && (
                 <PortableText
                   className="max-w-2xl"
-                  value={post.content as PortableTextBlock[]}
+                  value={project.content as PortableTextBlock[]}
                 />
               )}
             </article>
@@ -106,7 +106,7 @@ export default async function PostPage(props: Props) {
       <div className="border-t border-gray-100">
         <div className="container my-12 lg:my-24 grid gap-12">
           <aside>
-            <Suspense>{await MoreProjects({ skip: post._id, limit: 2 })}</Suspense>
+            <Suspense>{await MoreProjects({ skip: project._id, limit: 2 })}</Suspense>
           </aside>
         </div>
       </div>
