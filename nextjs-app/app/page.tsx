@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import Link from "next/link";
 
-import { AllPosts } from "@/app/components/Posts";
-import GetStartedCode from "@/app/components/GetStartedCode";
+import { AllPosts } from "@/app/components/global/Posts";
+import GetStartedCode from "@/app/components/global/GetStartedCode";
 
 export default async function Page() {
   return (
