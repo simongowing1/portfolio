@@ -8,7 +8,7 @@ import CoverImage from "@/app/components/global/CoverImage";
 import { MoreProjects } from "@/app/components/global/Projects";
 import PortableText from "@/app/components/global/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
-import { postPagesSlugs, projectQuery } from "@/sanity/lib/queries";
+import { projectPagesSlugs, projectQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
  */
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
-    query: postPagesSlugs,
+    query: projectPagesSlugs,
     // Use the published perspective in generateStaticParams
     perspective: "published",
     stega: false,

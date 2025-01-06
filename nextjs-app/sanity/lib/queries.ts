@@ -66,8 +66,8 @@ export const projectQuery = defineQuery(`
   }
 `);
 
-export const postPagesSlugs = defineQuery(`
-  *[_type == "post" && defined(slug.current)]
+export const projectPagesSlugs = defineQuery(`
+  *[_type == "project" && defined(slug.current)]
   {"slug": slug.current}
 `);
 
