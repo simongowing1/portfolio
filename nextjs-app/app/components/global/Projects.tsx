@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 import { sanityFetch } from "@/sanity/lib/live";
-import { morePostsQuery, allPostsQuery } from "@/sanity/lib/queries";
-import { Post as PostType } from "@/sanity.types";
+import { morePostsQuery as moreProjectsQuery, allProjectsQuery } from "@/sanity/lib/queries";
+import { Post as ProjectType } from "@/sanity.types";
 import DateComponent from "@/app/components/global/Date";
 import OnBoarding from "@/app/components/global/Onboarding";
 
-const Post = ({ post }: { post: PostType }) => {
-  const { _id, title, slug, excerpt, date } = post;
+const Project = ({ project }: { project: ProjectType }) => {
+  const { _id, title, slug, excerpt, date } = project;
 
   return (
     <article
@@ -33,7 +33,7 @@ const Post = ({ post }: { post: PostType }) => {
   );
 };
 
-const Posts = ({
+const Projects = ({
   children,
   heading,
   subHeading,
@@ -57,7 +57,7 @@ const Posts = ({
   </div>
 );
 
-export const MorePosts = async ({
+export const MoreProjects = async ({
   skip,
   limit,
 }: {
@@ -65,7 +65,7 @@ export const MorePosts = async ({
   limit: number;
 }) => {
   const { data } = await sanityFetch({
-    query: morePostsQuery,
+    query: moreProjectsQuery,
     params: { skip, limit },
   });
 
@@ -74,27 +74,27 @@ export const MorePosts = async ({
   }
 
   return (
-    <Posts heading={`Recent Posts (${data?.length})`}>
-      {data?.map((post: any) => <Post key={post._id} post={post} />)}
-    </Posts>
+    <Projects heading={`Recent Projects (${data?.length})`}>
+      {data?.map((project: any) => <Project key={project._id} project={project} />)}
+    </Projects>
   );
 };
 
-export const AllPosts = async () => {
-  const { data } = await sanityFetch({ query: allPostsQuery });
+export const AllProjects = async () => {
+  const { data } = await sanityFetch({ query: allProjectsQuery });
 
   if (!data || data.length === 0) {
     return <OnBoarding />;
   }
 
   return (
-    <Posts
-      heading="Recent Posts"
-      subHeading={`${data.length === 1 ? "This blog post is" : `These ${data.length} blog posts are`} populated from your Sanity Studio.`}
+    <Projects
+      heading="Recent Projects"
+      subHeading={`${data.length === 1 ? "This project is" : `These ${data.length} projects are`} populated from your Sanity Studio.`}
     >
-      {data.map((post: any) => (
-        <Post key={post._id} post={post} />
+      {data.map((project: any) => (
+        <Project key={project._id} project={project} />
       ))}
-    </Posts>
+    </Projects>
   );
 };

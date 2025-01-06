@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity";
 
 export const settingsQuery = defineQuery(`*[_type == "settings"][0]`);
 
-const postFields = /* groq */ `
+const projectFields = /* groq */ `
   _id,
   "status": select(_originalId in path("drafts.**") => "draft", "published"),
   "title": coalesce(title, "Untitled"),
@@ -41,20 +41,20 @@ export const getPageQuery = defineQuery(`
   }
 `);
 
-export const allPostsQuery = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {
-    ${postFields}
+export const allProjectsQuery = defineQuery(`
+  *[_type == "project" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+    ${projectFields}
   }
 `);
 
 export const morePostsQuery = defineQuery(`
-  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
-    ${postFields}
+  *[_type == "project" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
+    ${projectFields}
   }
 `);
 
-export const postQuery = defineQuery(`
-  *[_type == "post" && slug.current == $slug] [0] {
+export const projectQuery = defineQuery(`
+  *[_type == "project" && slug.current == $slug] [0] {
     content[]{
     ...,
     markDefs[]{
@@ -62,7 +62,7 @@ export const postQuery = defineQuery(`
       ${linkFields}
     }
   },
-    ${postFields}
+    ${projectFields}
   }
 `);
 

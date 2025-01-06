@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 
-import { AllPosts } from "@/app/components/global/Posts";
+import { AllProjects } from "@/app/components/global/Projects";
 import GetStartedCode from "@/app/components/global/GetStartedCode";
 
 export default async function Page() {
@@ -60,7 +60,7 @@ export default async function Page() {
       <div className="border-t border-gray-10">
         <div className="container">
           <aside className="py-12 sm:py-20">
-            <Suspense>{await AllPosts()}</Suspense>
+            <Suspense>{await AllProjects()}</Suspense>
           </aside>
         </div>
       </div>

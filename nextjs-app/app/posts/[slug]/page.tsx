@@ -5,10 +5,10 @@ import { Suspense } from "react";
 
 import Avatar from "@/app/components/global/Avatar";
 import CoverImage from "@/app/components/global/CoverImage";
-import { MorePosts } from "@/app/components/global/Posts";
-import PortableText from "@/app/components/PortableText";
+import { MoreProjects } from "@/app/components/global/Projects";
+import PortableText from "@/app/components/global/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
-import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
+import { postPagesSlugs, projectQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 
 type Props = {
@@ -39,7 +39,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const params = await props.params;
   const { data: post } = await sanityFetch({
-    query: postQuery,
+    query: projectQuery,
     params,
     // Metadata should never contain stega
     stega: false,
@@ -63,7 +63,7 @@ export async function generateMetadata(
 export default async function PostPage(props: Props) {
   const params = await props.params;
   const [{ data: post }] = await Promise.all([
-    sanityFetch({ query: postQuery, params }),
+    sanityFetch({ query: projectQuery, params }),
   ]);
 
   if (!post?._id) {
@@ -106,7 +106,7 @@ export default async function PostPage(props: Props) {
       <div className="border-t border-gray-100">
         <div className="container my-12 lg:my-24 grid gap-12">
           <aside>
-            <Suspense>{await MorePosts({ skip: post._id, limit: 2 })}</Suspense>
+            <Suspense>{await MoreProjects({ skip: post._id, limit: 2 })}</Suspense>
           </aside>
         </div>
       </div>
