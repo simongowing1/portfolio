@@ -97,6 +97,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
+      height: {
+        avail: 'calc(calc(var(--vh, 1vh) * 100) - 96px)'
+      }
     },
   },
   future: {

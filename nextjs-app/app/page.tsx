@@ -5,7 +5,7 @@ import { AllProjects } from "@/app/components/global/Projects";
 export default async function Page() {
   return (
     <>
-      <div className="h-screen bg-gradient-to-r from-red-200 from-0% via-white via-40%  relative">
+      <div className="h-avail bg-gradient-to-r from-red-200 from-0% via-white via-40%  relative">
         <div className="bg-gradient-to-b from-white w-full h-40 absolute top-0"></div>
         <div className="bg-gradient-to-t from-white w-full h-40 absolute bottom-0"></div>
         <div className="relative h-full">
