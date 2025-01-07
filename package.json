@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "description": "Next.js + Sanity: A Powerful Website Starter with Real-time Visual Editing",
+  "description": "Simon Gowing portfolio built using Next.js + Typescript + Tailwind + Sanity Vercel",
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=nextjs-app\" \"npm run dev --workspace=studio\"",
     "build": "npm run build --workspace=nextjs-app && npm run build --workspace=studio"
@@ -23,5 +23,9 @@
   ],
   "devDependencies": {
     "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

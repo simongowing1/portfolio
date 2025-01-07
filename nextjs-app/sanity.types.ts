@@ -571,7 +571,7 @@ export type GetPageQueryResult = {
 export type AllProjectsQueryResult = Array<{
   _id: string;
   status: "draft" | "published";
-  title: string | "Untitled";
+  title: string;
   slug: string;
   excerpt: string | null;
   coverImage: {
@@ -609,7 +609,7 @@ export type AllProjectsQueryResult = Array<{
 export type MoreProjectsQueryResult = Array<{
   _id: string;
   status: "draft" | "published";
-  title: string | "Untitled";
+  title: string;
   slug: string;
   excerpt: string | null;
   coverImage: {
@@ -680,7 +680,7 @@ export type ProjectQueryResult = {
   }> | null;
   _id: string;
   status: "draft" | "published";
-  title: string | "Untitled";
+  title: string;
   slug: string;
   excerpt: string | null;
   coverImage: {
