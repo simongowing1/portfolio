@@ -7,8 +7,8 @@ import FadeIn from '../global/FadeIn';
 
 import SanityImage from '../global/SanityImage';
 import VideoWrapper from '../global/VideoWrapper';
-import { Video } from '@/types/Video.types';
-import { Image } from '@/types/Image.types';
+import { Video } from '@/utils/types/Video.types';
+import { Image } from '@/utils/types/Image.types';
 
 gsap.registerPlugin(ScrollTrigger);
 

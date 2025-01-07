@@ -1,4 +1,4 @@
-import { CustomSVGProps } from "@/types/CustomSVGProps.types"
+import { CustomSVGProps } from "@/utils/types/CustomSVGProps.types"
 
 
 export default function IconGithub24(props?: CustomSVGProps): JSX.Element {

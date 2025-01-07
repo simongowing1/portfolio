@@ -10,7 +10,7 @@ import {useEffect, useState} from 'react';
 import {twMerge} from 'tailwind-merge';
 
 import { client } from '@/sanity/lib/client';
-import { Image } from '@/types/Image.types';
+import { Image } from '@/utils/types/Image.types';
 
 export type ImageLayout = 'fill' | 'responsive';
 

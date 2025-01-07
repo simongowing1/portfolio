@@ -10,7 +10,7 @@ import {twMerge} from 'tailwind-merge';
 const ReactPlayer = dynamic(() => import('react-player'), {ssr: false});
 
 import SanityImage from './SanityImage';
-import { Video } from '@/types/Video.types';
+import { Video } from '@/utils/types/Video.types';
 interface VideoProps {
   src: Video;
   className?: string;
