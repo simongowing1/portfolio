@@ -3,33 +3,16 @@ import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { moreProjectsQuery, allProjectsQuery } from "@/sanity/lib/queries";
 import { Project as ProjectType } from "@/sanity.types";
-import DateComponent from "@/app/components/global/Date";
 import OnBoarding from "@/app/components/global/Onboarding";
+import SanityImage from "./SanityImage";
 
 const Project = ({ project }: { project: ProjectType }) => {
-  const { _id, title, slug, excerpt, date } = project;
+  const { _id, title, slug, excerpt, date, coverImage } = project;
 
   return (
-    <article
-      key={_id}
-      className="flex max-w-xl flex-col items-start justify-between"
-    >
-      <div className="text-gray-500 text-sm">
-        <DateComponent dateString={date} />
-      </div>
-
-      <h3 className="mt-3 text-2xl font-semibold">
-        <Link
-          className="hover:text-red-500 underline transition-colors"
-          href={`/projects/${slug}`}
-        >
-          {title}
-        </Link>
-      </h3>
-      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-        {excerpt}
-      </p>
-    </article>
+    <div className="w-full h-avail">
+      <SanityImage image={coverImage} layout='responsive' wrapperClassName="h-full" priority />
+    </div>
   );
 };
 
