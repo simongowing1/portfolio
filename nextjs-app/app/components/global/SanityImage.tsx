@@ -1,3 +1,5 @@
+"use client"
+
 // lib
 import {useAnimation} from 'framer-motion';
 import Img from 'next/image';
@@ -63,9 +65,9 @@ export default function SanityImage({
   // Generate actual URL
   const sanityImageProps: UseNextSanityImageProps = useNextSanityImage(
     client,
-    image?.asset,
-    useNextSanityImageOptions,
-  );
+    image?.asset || {}, // Fallback to an empty object if image.asset is null
+    useNextSanityImageOptions
+  ) || {};
 
   let imageProps = {};
 
