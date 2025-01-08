@@ -133,7 +133,7 @@ export default function SanityImage({
         {...imageProps}
         {...attributes}
         quality="90"
-        onLoadingComplete={() => setLoaded(true)}
+        onLoad={() => setLoaded(true)}
         className={twMerge(
           'lazyload w-full',
           layout === 'fill' ? 'h-full object-cover' : 'object-contain',
