@@ -1,3 +1,4 @@
+import { GITHUB_REPO_URL } from "@/utils/constants";
 import ButtonPill from "./ButtonPill"
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
           </h3>
           
           <div className="flex flex-col gap-3 items-center justify-end lg:w-1/2 lg:flex-row lg:pl-4">
-          <ButtonPill label="View on GitHub" href="https://github.com/simongowing1/portfolio"/>
+          <ButtonPill label="View on GitHub" href={GITHUB_REPO_URL}/>
           </div>
         </div>
       </div>
