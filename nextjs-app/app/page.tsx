@@ -11,13 +11,8 @@ export default async function Page() {
         <div className="relative h-full">
           <div className="h-full mx-auto max-w-2xl py-20 lg:max-w-4xl lg:px-12 text-center flex items-center justify-center">
             <div className="mt-6 space-y-6 prose sm:prose-lg md:prose-xl lg:prose-2xl text-gray-700">
-              <p>
-                This starter is a statically generated site that uses Next.js
-                for the frontend and Sanity to handle its content. It comes with
-                a standalone Sanity Studio that offers features like real-time
-                collaboration, instant side-by-side content previews, and
-                intuitive editing.
-              </p>
+              <p>I am a creative-minded frontend developer with a passion for building customer-focused, humane products. My love for working with others and mastering new skills is rooted in 10 years of cross-functional team-leadership and stakeholder collaboration in the visual arts.</p>
+              <p>With a strong foundation in modern web technologies and a creative, empathetic approach to problem-solving, I thrive at delivering innovative, human-centered solutions.</p>
             </div>
           </div>
         </div>
