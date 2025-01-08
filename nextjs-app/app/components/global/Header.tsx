@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import ButtonPill from "./ButtonPill";
 import IconGithub24 from "@/public/icons/ic-github";
+import { useScrollResponsiveHeader } from "@/utils/hooks/useScrollResponsiveHeader";
 
 export default function Header() {
+
+  useScrollResponsiveHeader();
+
   return (
-    <header className="fixed z-50 h-24 inset-0 bg-white/80 flex items-center backdrop-blur-lg">
+    <header id={'site-header'} className="fixed z-50 h-24 inset-0 bg-white/80 flex items-center backdrop-blur-lg transition-[top] duration-500">
       <div className="container py-6 sm:px-6">
         <div className="flex items-center justify-between gap-5">
           <Link className="flex items-center gap-2" href="/">
