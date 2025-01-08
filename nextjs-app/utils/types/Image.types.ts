@@ -1,19 +1,12 @@
-import { Asset } from "./Asset.types";
-import { TypeBase } from "./TypeBase.types";
+import { SanityImageCrop, SanityImageHotspot } from "@/sanity.types";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-export interface Image extends TypeBase {
-    alt: string;
-    asset: Asset;
-    fileUrl: string;
-    hotspot?: {
-      x: number;
-      y: number;
+export type Image = SanityImageSource & {
+    asset?: {
+      _ref: string;
+      _type: string;
     };
-    crop: {
-      top: number;
-      left: number;
-      right: number;
-      bottom: number;
-    };
-    caption?: string;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
   }
