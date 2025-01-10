@@ -1,7 +1,15 @@
+"use client";
+
 import { GITHUB_REPO_URL } from "@/utils/constants";
 import ButtonPill from "./ButtonPill"
+import useIsMobile from "@/utils/hooks/useIsMobile";
+import IconGithub24 from "@/public/icons/ic-github";
+import ButtonGitHub from "./button/ButtonGitHub";
 
 export default function Footer() {
+
+  const isMobile = useIsMobile();
+
   return (
     <footer className="bg-gray-50 border-gray-100 border-t">
       <div className="container">
@@ -11,7 +19,7 @@ export default function Footer() {
           </h3>
           
           <div className="flex flex-col gap-3 items-center justify-end lg:w-1/2 lg:flex-row lg:pl-4">
-          <ButtonPill label="View on GitHub" href={GITHUB_REPO_URL}/>
+          <ButtonGitHub/>
           </div>
         </div>
       </div>

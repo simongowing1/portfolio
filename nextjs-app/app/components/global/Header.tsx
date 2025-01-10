@@ -5,6 +5,7 @@ import ButtonPill from "./ButtonPill";
 import IconGithub24 from "@/public/icons/ic-github";
 import { useScrollResponsiveHeader } from "@/utils/hooks/useScrollResponsiveHeader";
 import { GITHUB_REPO_URL } from "@/utils/constants";
+import ButtonGitHub from "./button/ButtonGitHub";
 
 export default function Header() {
 
@@ -32,7 +33,7 @@ export default function Header() {
               </li>
 
               <li className="sm:before:w-[1px] sm:before:bg-gray-100 before:block flex sm:gap-4 md:gap-6">
-              <ButtonPill label="View on GitHub" href={GITHUB_REPO_URL} icon={IconGithub24({className:'h-6'})} />
+              <ButtonGitHub/>
               </li>
             </ul>
           </nav>
