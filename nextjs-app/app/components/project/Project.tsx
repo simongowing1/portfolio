@@ -14,8 +14,8 @@ type ProjectProps =  {
     project: ProjectType
 }
 
-const Project = ({project, isNotFinalProjectInArray = true}: ProjectProps) => {
-    const { _id, title, slug, excerpt, date, coverImage} = project;
+const Project = ({project, isNotFinalProjectInArray = false}: ProjectProps) => {
+    const { _id, title, slug, coverImage} = project;
   
     const containerRef = useRef(null);
     const pinnedRef = useRef(null);
@@ -45,9 +45,9 @@ const Project = ({project, isNotFinalProjectInArray = true}: ProjectProps) => {
         <div ref={pinnedRef} className="h-full w-full">
         <SanityImage image={coverImage} layout='responsive' wrapperClassName="h-full" priority />
         </div>
-        <div className="absolute bottom-0 w-full bg-gradient-to-t from-black">
-          <div className="container py-6 sm:px-6 flex justify-center sm:justify-end">
-            <ButtonPill label={title} href={'/projects/' + slug} classNameText="text-xl sm:text-2xl" styling="cyan"/>
+        <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black flex items-end">
+          <div className="container py-10 sm:px-6 flex justify-center sm:justify-end">
+            <ButtonPill label={title} href={'/projects/' + slug} classNameText="text-lg sm:text-2xl" styling="cyan" classNameWrapper="px-6 py-3 text-center"/>
           </div>
         </div>
       </div>
