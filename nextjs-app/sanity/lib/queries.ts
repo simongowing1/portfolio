@@ -9,6 +9,7 @@ const projectFields = /* groq */ `
   "slug": slug.current,
   excerpt,
   coverImage,
+  url,
   "date": coalesce(date, _updatedAt),
   "author": author->{firstName, lastName, picture},
 `;

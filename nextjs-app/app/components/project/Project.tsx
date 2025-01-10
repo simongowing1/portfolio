@@ -15,7 +15,7 @@ type ProjectProps =  {
 }
 
 const Project = ({project, isNotFinalProjectInArray = false}: ProjectProps) => {
-    const { _id, title, slug, coverImage} = project;
+    const { _id, title, url, slug, coverImage} = project;
   
     const containerRef = useRef(null);
     const pinnedRef = useRef(null);
@@ -47,7 +47,7 @@ const Project = ({project, isNotFinalProjectInArray = false}: ProjectProps) => {
         </div>
         <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black flex items-end">
           <div className="container py-10 sm:px-6 flex justify-center sm:justify-end">
-            <ButtonPill label={title} href={'/projects/' + slug} classNameText="text-lg sm:text-2xl" styling="cyan" classNameWrapper="px-6 py-3 text-center"/>
+            <ButtonPill label={title} href={url} classNameText="text-lg sm:text-2xl" styling="cyan" classNameWrapper="px-6 py-3 text-center"/>
           </div>
         </div>
       </div>
