@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { AllProjects } from "@/app/components/global/Projects";
+import { AllProjects } from "@/app/components/project/Projects";
 
 export default async function Page() {
   return (
