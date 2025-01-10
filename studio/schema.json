@@ -1385,6 +1385,13 @@
         },
         "optional": false
       },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      },
       "content": {
         "type": "objectAttribute",
         "value": {

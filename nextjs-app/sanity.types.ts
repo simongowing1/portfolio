@@ -223,6 +223,7 @@ export type Project = {
   _rev: string;
   title: string;
   slug: Slug;
+  url: string;
   content?: BlockContent;
   excerpt?: string;
   coverImage: {

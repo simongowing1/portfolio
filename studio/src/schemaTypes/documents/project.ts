@@ -32,6 +32,12 @@ export const project = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'blockContent',
