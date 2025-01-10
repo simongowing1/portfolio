@@ -38,7 +38,7 @@ const Project = ({project, isNotFinalProjectInArray = false}: ProjectProps) => {
               ctx.revert();
             }
           };
-        }, [containerRef]);
+        }, [containerRef, pinnedRef, isNotFinalProjectInArray]);
 
     return (
       <div key={_id} ref={containerRef} className="w-full h-screen overflow-hidden relative z-0">
