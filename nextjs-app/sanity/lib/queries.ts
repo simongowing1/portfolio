@@ -42,7 +42,7 @@ export const getPageQuery = defineQuery(`
 `);
 
 export const allProjectsQuery = defineQuery(`
-  *[_type == "project" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+  *[_type == "project" && defined(slug.current)] | order(date desc) {
     ${projectFields}
   }
 `);

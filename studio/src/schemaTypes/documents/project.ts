@@ -56,7 +56,7 @@ export const project = defineType({
     defineField({
       name: 'date',
       title: 'Date',
-      type: 'datetime',
+      type: 'date',
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
