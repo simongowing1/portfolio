@@ -11,6 +11,7 @@ const ReactPlayer = dynamic(() => import('react-player'), {ssr: false});
 
 import SanityImage from './SanityImage';
 import { Video } from '@/utils/types/Video.types';
+import useIsMobile from '@/utils/hooks/useIsMobile';
 interface VideoProps {
   src: Video;
   className?: string;
@@ -31,9 +32,10 @@ export default function VideoWrapper({
   const [videoSrc, setVideoSrc] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [showImage, setImage] = useState(false);
-  const isMobile = useMedia('(max-width: 1024px)', false);
   const [paused, setPaused] = useState(true);
   const [progress, setProgress] = useState(0);
+
+  const isMobile = useIsMobile();
 
   muted = autoplay ? true : muted;
 
