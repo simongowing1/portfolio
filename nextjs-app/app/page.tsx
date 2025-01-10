@@ -19,9 +19,7 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-10">
-            <Suspense>{await AllProjects()}</Suspense>
-      </div>
+      <Suspense>{await AllProjects()}</Suspense>
     </>
   );
 }
