@@ -15,7 +15,7 @@ export default function Header() {
       <div className="container py-6 sm:px-6">
         <div className="flex items-center justify-between gap-5">
           <Link className="flex items-center gap-2" href="/">
-            <span className="text-lg lg:text-4xl font-bold pl-2 leading-tight tracking-tighter">
+            <span className="text-4xl font-bold pl-2 leading-tight tracking-tighter">
               Simon Gowing
             </span>
           </Link>
