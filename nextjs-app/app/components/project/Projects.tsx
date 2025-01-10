@@ -63,7 +63,9 @@ export const AllProjects = async () => {
       heading="Recent Projects"
     >
       {data.map((project: any, index: number) => (
-        <Project key={project._id} project={project} isNotFinalProjectInArray={isNotFinalIndex(data, index)}/>
+        <div id={'project-target'}>
+          <Project key={project._id} project={project} isNotFinalProjectInArray={isNotFinalIndex(data, index)}/>
+        </div>
       ))}
     </Projects>
   );

@@ -1,8 +1,11 @@
 import { Suspense } from "react";
 
+
 import { AllProjects } from "@/app/components/project/Projects";
+import ScrollChevronIcon from "./components/global/icon/ScrollChevronIcon";
 
 export default async function Page() {
+
   return (
     <>
       <div className="h-screen bg-gradient-to-r from-red-200 from-0% via-white via-40% relative">
@@ -16,6 +19,7 @@ export default async function Page() {
               <p>With a strong foundation in modern web technologies and a creative approach to problem-solving, I thrive at delivering innovative, human-centered solutions.</p>
             </div>
             </div>
+            <ScrollChevronIcon size="100" className="absolute bottom-5 cursor-pointer hover:text-red-400" scrollTarget={'project-target'}/>
           </div>
         </div>
       </div>
