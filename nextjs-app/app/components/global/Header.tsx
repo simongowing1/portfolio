@@ -12,7 +12,7 @@ export default function Header() {
   useScrollResponsiveHeader();
 
   return (
-    <header id={'site-header'} className="fixed z-50 h-24 inset-0 flex items-center backdrop-blur-lg transition-[top] duration-500 bg-gradient-to-b from-white/80">
+    <header id={'site-header'} className="fixed z-50 h-36 sm:h-24 inset-0 flex items-center backdrop-blur-lg transition-[top] duration-500 bg-gradient-to-b from-white/80">
       <div className="container py-6 sm:px-6">
         <div className="flex items-center justify-between gap-5">
           <Link className="flex items-center gap-2" href="/">
