@@ -95,6 +95,15 @@ export const settings = defineType({
         }),
       ],
     }),
+    defineField({
+      title: 'CV Download',
+      name: 'cvDownload',
+      type: 'file',
+      options: {
+        accept: '.pdf',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     prepare() {
