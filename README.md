@@ -1,6 +1,8 @@
 # Simon Gowing Portfolio
 
-This template includes a [Next.js](https://nextjs.org/) app with a [Sanity Studio](https://www.sanity.io/) – an open-source React application that connects to your Sanity project’s hosted dataset. The Studio is configured locally and can then be deployed for content collaboration.
+I am a creative-minded frontend developer with a passion for building customer-focused, humane products. My love for working with others and learning new skills is rooted in 10 years of cross-functional team-leadership and stakeholder collaboration in the visual arts.
+
+With a strong foundation in modern web technologies and a creative approach to problem-solving, I thrive at delivering innovative, human-centered solutions.
 
 ![Snoopy in 1984](https://i.pinimg.com/736x/25/e3/e8/25e3e832e2094c6d4046d4db2d06b051.jpg)
 
