@@ -1,17 +1,19 @@
-"use client";
-
 import Link from "next/link";
-import ButtonPill from "./ButtonPill";
-import IconGithub24 from "@/public/icons/ic-github";
-import { useScrollResponsiveHeader } from "@/utils/hooks/useScrollResponsiveHeader";
-import { GITHUB_REPO_URL } from "@/utils/constants";
-import ButtonGitHub from "./button/ButtonGitHub";
+import ButtonGitHub from "../global/button/ButtonGitHub";
+import HeaderClient from "./HeaderClient";
+import { SettingsQueryResult } from "@/sanity.types";
 
-export default function Header() {
+type HeaderProps = {
+  settings: SettingsQueryResult;
+}
 
-  useScrollResponsiveHeader();
+export default function Header({settings}: HeaderProps) {
+
+  const cvDownload = settings?.cvDownload || '#';
 
   return (
+    <>
+    <HeaderClient/>
     <header id={'site-header'} className="fixed z-50 h-36 sm:h-24 inset-0 flex items-center backdrop-blur-lg transition-[top] duration-500 bg-gradient-to-b from-white/80">
       <div className="container py-6 sm:px-6">
         <div className="flex items-center justify-between gap-5">
@@ -27,7 +29,7 @@ export default function Header() {
               className="flex items-center gap-4 md:gap-6 leading-5 text-sm md:text-base tracking-tight font-normal"
             >
               <li>
-                <Link href="/about" className="">
+                <Link href={cvDownload} download target="_blank" className="">
                   CV
                 </Link>
               </li>
@@ -40,5 +42,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }

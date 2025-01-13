@@ -9,7 +9,7 @@ import { Toaster } from "sonner";
 
 import DraftModeToast from "@/app/components/global/DraftModeToast";
 import Footer from "@/app/components/global/Footer";
-import Header from "@/app/components/global/Header";
+import Header from "@/app/components/layout/Header";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -65,6 +65,10 @@ export default async function RootLayout({
 }) {
   const { isEnabled: isDraftMode } = await draftMode();
 
+  const { data: settings } = await sanityFetch({
+        query: settingsQuery,
+      });
+
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
@@ -81,7 +85,7 @@ export default async function RootLayout({
           )}
           {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
           <SanityLive onError={handleError} />
-          <Header />
+          <Header settings={settings}/>
           <main className="">{children}</main>
           <Footer />
         </section>
