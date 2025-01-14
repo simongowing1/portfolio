@@ -12,17 +12,30 @@ export const project = defineType({
   title: 'Project',
   icon: DocumentTextIcon,
   type: 'document',
+  groups: [
+    {
+      name: 'details',
+    },
+    {
+      name: 'editorial'
+    },
+    {
+      name: 'sections',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'details',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      group: 'details',
       description: 'A slug is required for the project to show up in the preview',
       options: {
         source: 'title',
@@ -35,17 +48,20 @@ export const project = defineType({
       name: 'url',
       title: 'URL',
       type: 'string',
+      group: 'details',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'content',
       title: 'Content',
       type: 'blockContent',
+      group: 'editorial'
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
+      group: 'editorial'
     }),
     defineField({
       name: 'coverImage',
@@ -57,19 +73,49 @@ export const project = defineType({
           imageDescriptionField: 'alt',
         },
       },
+      group: 'editorial',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'date',
-      title: 'Date',
+      title: 'Delivery Date',
       type: 'date',
+      group: 'details',
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
+      name: 'sector',
+      title: 'Sector',
       type: 'reference',
-      to: [{type: 'person'}],
+      group: 'details',
+      to: [{type: 'sector'}],
+      // validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'responsibilities',
+      title: 'Responsibilities',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'responsibility'}],
+        },
+      ],
+      group: 'details',
+      validation: (Rule) => Rule.unique(),
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'tag'}],
+        },
+      ],
+      group: 'details',
+      validation: (Rule) => Rule.unique(),
     }),
   ],
   // List preview configuration. https://www.sanity.io/docs/previews-list-views
