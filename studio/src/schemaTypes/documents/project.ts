@@ -1,6 +1,6 @@
-import {DocumentTextIcon} from '@sanity/icons'
-import {format, parseISO} from 'date-fns'
-import {defineField, defineType} from 'sanity'
+import { DocumentTextIcon } from '@sanity/icons'
+import { format, parseISO } from 'date-fns'
+import { defineField, defineType } from 'sanity'
 
 /**
  * Project schema.  Define and edit the fields for the 'project' content type.
@@ -77,6 +77,15 @@ export const project = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'isImageScreenHeightOnly',
+      title: 'Image is Screen Height',
+      type: 'boolean',
+      initialValue: true,
+      options: {
+        layout: 'switch',
+      },
+    }),
+    defineField({
       name: 'date',
       title: 'Delivery Date',
       type: 'date',
@@ -88,7 +97,7 @@ export const project = defineType({
       title: 'Sector',
       type: 'reference',
       group: 'details',
-      to: [{type: 'sector'}],
+      to: [{ type: 'sector' }],
       // validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -98,7 +107,7 @@ export const project = defineType({
       of: [
         {
           type: 'reference',
-          to: [{type: 'responsibility'}],
+          to: [{ type: 'responsibility' }],
         },
       ],
       group: 'details',
@@ -111,7 +120,7 @@ export const project = defineType({
       of: [
         {
           type: 'reference',
-          to: [{type: 'tag'}],
+          to: [{ type: 'tag' }],
         },
       ],
       group: 'details',
@@ -127,13 +136,13 @@ export const project = defineType({
       date: 'date',
       media: 'coverImage',
     },
-    prepare({title, media, authorFirstName, authorLastName, date}) {
+    prepare({ title, media, authorFirstName, authorLastName, date }) {
       const subtitles = [
         authorFirstName && authorLastName && `by ${authorFirstName} ${authorLastName}`,
         date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
       ].filter(Boolean)
 
-      return {title, media, subtitle: subtitles.join(' ')}
+      return { title, media, subtitle: subtitles.join(' ') }
     },
   },
 })

@@ -1670,6 +1670,13 @@
         },
         "optional": false
       },
+      "isImageScreenHeightOnly": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      },
       "date": {
         "type": "objectAttribute",
         "value": {
