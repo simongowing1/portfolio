@@ -277,6 +277,7 @@ export type Project = {
     alt?: string;
     _type: "figure";
   };
+  isImageScreenHeightOnly?: boolean;
   date?: string;
   sector?: {
     _ref: string;

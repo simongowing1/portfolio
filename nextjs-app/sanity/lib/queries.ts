@@ -15,6 +15,7 @@ const projectFields = /* groq */ `
   excerpt,
   coverImage,
   url,
+  isImageScreenHeightOnly,
   "date": coalesce(date, _updatedAt),
   "author": author->{firstName, lastName, picture},
 `;
