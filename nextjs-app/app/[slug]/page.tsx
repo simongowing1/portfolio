@@ -52,7 +52,7 @@ export default async function Page(props: Props) {
 
   if (!page?._id) {
     return (
-      <div className="py-40">
+      <div className="">
         <NotFound />
       </div>
     );
