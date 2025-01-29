@@ -10,6 +10,7 @@ import PortableText from "@/app/components/global/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { projectPagesSlugs, projectQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import NotFound from "@/app/not-found";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -67,7 +68,7 @@ export default async function ProjectPage(props: Props) {
   ]);
 
   if (!project?._id) {
-    return notFound();
+    return <NotFound />;
   }
 
   return (

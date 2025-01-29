@@ -1,8 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { moreProjectsQuery, allProjectsQuery } from "@/sanity/lib/queries";
-import OnBoarding from "@/app/components/global/Onboarding";
 import Project from "./Project";
 import { isNotFinalIndex } from "@/utils/helpers/arrayHelpers";
+import NotFound from "@/app/not-found";
 
 const Projects = ({
   children,
@@ -11,9 +11,9 @@ const Projects = ({
   heading?: string;
   subHeading?: string;
 }) => (
-    <div id={'project-target'} className="">
-      {children}
-    </div>
+  <div id={'project-target'} className="">
+    {children}
+  </div>
 );
 
 export const MoreProjects = async ({
@@ -34,7 +34,7 @@ export const MoreProjects = async ({
 
   return (
     <Projects heading={`Recent Projects (${data?.length})`}>
-      {data?.map((project: any) => <Project key={project._id} project={project}/>)}
+      {data?.map((project: any) => <Project key={project._id} project={project} />)}
     </Projects>
   );
 };
@@ -43,7 +43,7 @@ export const AllProjects = async () => {
   const { data } = await sanityFetch({ query: allProjectsQuery });
 
   if (!data || data.length === 0) {
-    return <OnBoarding />;
+    return <NotFound />;
   }
 
   return (
@@ -52,7 +52,7 @@ export const AllProjects = async () => {
     >
       {data.map((project: any, index: number) => (
         <div key={index}>
-          <Project key={project._id} project={project} isNotFinalProjectInArray={isNotFinalIndex(data, index)}/>
+          <Project key={project._id} project={project} isNotFinalProjectInArray={isNotFinalIndex(data, index)} />
         </div>
       ))}
     </Projects>
