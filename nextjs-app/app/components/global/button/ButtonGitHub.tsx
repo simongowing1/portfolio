@@ -2,8 +2,13 @@ import { GITHUB_REPO_URL } from "@/utils/constants";
 import ButtonPill from "../ButtonPill";
 import IconGithub24 from "@/public/icons/ic-github";
 
-export default function ButtonGitHub() {
+type ButtonGitHubProps = {
+    styling?: "black" | "white";
+}
+
+export default function ButtonGitHub({ styling = "white" }: ButtonGitHubProps) {
+    const iconColor = styling === "black" ? "text-black" : "text-white";
     return (
-        <ButtonPill label="View on GitHub" styling="white" href={GITHUB_REPO_URL} icon={IconGithub24({ className: 'h-6 text-black' })} />
+        <ButtonPill label="View on GitHub" styling={styling} href={GITHUB_REPO_URL} icon={IconGithub24({ className: `h-6 ${iconColor}` })} />
     )
 }
