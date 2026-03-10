@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-export function useScrollResponsiveHeader(headerId: string = "site-header") {
+export function useScrollResponsiveHeader(enabled: boolean = true, headerId: string = "site-header") {
   const [siteHeaderHeight, setSiteHeaderHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
+    if (!enabled) return;
     const siteHeader = document.getElementById(headerId);
     if (!siteHeader) return;
 
@@ -36,5 +37,5 @@ export function useScrollResponsiveHeader(headerId: string = "site-header") {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [headerId, siteHeaderHeight]);
+  }, [enabled, headerId, siteHeaderHeight]);
 }
