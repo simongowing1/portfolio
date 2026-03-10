@@ -14,11 +14,11 @@ export default function Header({ settings }: HeaderProps) {
   return (
     <>
       <HeaderClient />
-      <header id={'site-header'} className="fixed z-50 h-36 sm:h-24 inset-0 flex items-center backdrop-blur-lg transition-[top] duration-500 bg-gradient-to-b from-white/80 w-screen">
+      <header id={'site-header'} className="fixed z-50 h-36 sm:h-24 inset-0 flex items-center transition-[top] duration-500 bg-gradient-to-b from-black mix-blend-difference to-transparent w-screen">
         <div className="container py-6 sm:px-6">
           <div className="flex items-center justify-between gap-5">
             <Link className="flex items-center gap-2" href="/">
-              <span className="text-4xl font-bold pl-2 leading-tight tracking-tighter">
+              <span className="text-4xl font-bold pl-2 leading-tight tracking-tighter text-white">
                 Simon Gowing
               </span>
             </Link>
@@ -29,7 +29,7 @@ export default function Header({ settings }: HeaderProps) {
                 className="flex items-center gap-4 md:gap-6 leading-5 text-sm md:text-base tracking-tight font-normal"
               >
                 <li>
-                  <Link href={cvDownload} download target="_blank" className="">
+                  <Link href={cvDownload} download target="_blank" className="text-white">
                     CV
                   </Link>
                 </li>
