@@ -16,35 +16,12 @@ type ProjectProps = {
 }
 
 const Project = ({ project, isNotFinalProjectInArray = false }: ProjectProps) => {
-  const { _id, title, url, slug, coverImage, isImageScreenHeightOnly } = project;
-
-  const containerRef = useRef(null);
-  const pinnedRef = useRef(null);
-
-  useEffect(() => {
-    let ctx: gsap.Context | undefined;
-    if (isNotFinalProjectInArray && containerRef.current) {
-      ctx = gsap.context(() => {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          pin: pinnedRef.current,
-          pinSpacing: false,
-        });
-      }, containerRef);
-    }
-    return () => {
-      if (ctx) {
-        ctx.revert();
-      }
-    };
-  }, [containerRef, pinnedRef, isNotFinalProjectInArray]);
+  const { _id, title, url, slug, coverImage } = project;
 
   return (
-    <div key={_id} ref={containerRef} className={twMerge("w-full overflow-hidden relative z-0", isImageScreenHeightOnly ? 'aspect-video' : 'h-screen')}>
-      <div ref={pinnedRef} className="h-full w-full">
-        <SanityImage image={coverImage} layout='responsive' wrapperClassName="h-full" priority />
+    <div key={_id} className={twMerge("w-screen flex-shrink-0 overflow-hidden relative z-0", 'h-screen')}>
+      <div className="h-full w-full">
+        <SanityImage image={coverImage} wrapperClassName="h-full w-full" priority />
       </div>
       <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black flex items-end">
         <div className="container py-10 sm:px-6 flex justify-center sm:justify-end">
